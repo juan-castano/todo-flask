@@ -1,11 +1,6 @@
 import os
 import sys
 
-from werkzeug.serving import run_simple
-from werkzeug.wsgi import DispatcherMiddleware
-
-from app import app as application
-
 
 virtenv = os.path.expanduser('~') + '/flask/'
 virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
@@ -17,6 +12,12 @@ except IOError:
 
 sys.path.append(os.path.expanduser('~'))
 sys.path.append(os.path.expanduser('~') + '/ROOT/')
+
+
+from werkzeug.serving import run_simple
+from werkzeug.wsgi import DispatcherMiddleware
+
+from app import app as application
 
 
 application = DispatcherMiddleware(application)
