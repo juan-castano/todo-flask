@@ -18,11 +18,9 @@ except IOError:
 sys.path.append(os.path.expanduser('~'))
 sys.path.append(os.path.expanduser('~') + '/ROOT/')
 
-"""
-application = DispatcherMiddleware(create_app(), {
-    '/api': create_api()
-})
-"""
+
+application = DispatcherMiddleware(application)
+
 
 if __name__ == "__main__":
     run_simple(
